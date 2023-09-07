@@ -3,15 +3,15 @@ import shutil
 import hashlib
 import time
 
-LOGS_FOLDER = '/content/Retrieval-based-Voice-Conversion-WebUI/logs'
-WEIGHTS_FOLDER = '/content/Retrieval-based-Voice-Conversion-WebUI/weights'
-GOOGLE_DRIVE_PATH = '/content/drive/MyDrive/RVC_Backup'
+LOGS_FOLDER = '/kaggle/working/Retrieval-based-Voice-Conversion-WebUI/logs'
+WEIGHTS_FOLDER = '/kaggle/working/Retrieval-based-Voice-Conversion-WebUI/weights'
+GOOGLE_DRIVE_PATH = '/kaggle/working/drive/MyDrive/RVC_Backup'
 
 def import_google_drive_backup():
     print("Importing Google Drive backup...")
-    GOOGLE_DRIVE_PATH = '/content/drive/MyDrive/RVC_Backup' # change this to your Google Drive path
-    LOGS_FOLDER = '/content/Retrieval-based-Voice-Conversion-WebUI/logs'
-    WEIGHTS_FOLDER = '/content/Retrieval-based-Voice-Conversion-WebUI/weights'
+    GOOGLE_DRIVE_PATH = '/kaggle/working/drive/MyDrive/RVC_Backup' # change this to your Google Drive path
+    LOGS_FOLDER = '/kaggle/working/Retrieval-based-Voice-Conversion-WebUI/logs'
+    WEIGHTS_FOLDER = '/kaggle/working/Retrieval-based-Voice-Conversion-WebUI/weights'
     weights_exist = False
     for root, dirs, files in os.walk(GOOGLE_DRIVE_PATH):
         for filename in files:
@@ -119,4 +119,4 @@ def backup_files():
         with open(last_backup_timestamps_path, 'w') as f:
             for filepath, timestamp in last_backup_timestamps.items():
                 f.write(f'{filepath}:{timestamp}\n')
-        time.sleep(sleep_time) # wait for 15 seconds before checking again, or 1s if not fully up to date to speed up backups
+        time.sleep(sleep_time) # wait for 15 seconds before checking again, or 0.1s if not fully up to date to speed up backups
