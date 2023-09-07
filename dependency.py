@@ -107,7 +107,9 @@ def setup_environment(ForceUpdateDependencies, ForceTemporaryStorage):
         if ForceTemporaryStorage:
             pass
         else:
-            shutil.copy(file_path, file_path)
+            pass
+
+            # shutil.copy(file_path, file_path)
 
         print('Beginning backup copy operation...')
 
